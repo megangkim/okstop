@@ -9,38 +9,38 @@ Description: This file defines the Airport class used to represent an airport.
 """
 
 class Airport:
-    # Constructor method to initialize the airport's country, city, and code
     def __init__(self, country, city, code):
-        self._country = country  # Store the country name
-        self._city = city        # Store the city name
-        self._code = code        # Store the airport code (e.g., "YYZ")
+        # Save the basic details of the airport
+        self._country = country     # Country the airport is located in
+        self._city = city           # City the airport is in
+        self._code = code           # 3-letter airport code (e.g., YYZ or LAX)
 
-    # Define how the airport object is printed as a string
     def __str__(self):
+        # When we print the airport, this is how it will look
         return f"{self._code} [{self._city}, {self._country}]"
 
-    # Define equality check between two Airport objects
     def __eq__(self, other):
-        if not isinstance(other, Airport):  # Check if 'other' is an Airport object
+        # Airports are considered equal if their codes match
+        if not isinstance(other, Airport):
             return False
-        return self._code == other._code    # Airports are equal if their codes match
+        return self._code == other._code
 
-    # Getter method for the airport code
+    # Just returns the airport code (used a lot in comparisons and keys)
     def get_code(self):
         return self._code
 
-    # Getter method for the city name
+    # Returns the city name
     def get_city(self):
         return self._city
 
-    # Getter method for the country name
+    # Returns the country name
     def get_country(self):
         return self._country
 
-    # Setter method to update the city name
+    # Lets us update the city name if needed
     def set_city(self, city):
         self._city = city
 
-    # Setter method to update the country name
+    # Lets us update the country name if needed
     def set_country(self, country):
         self._country = country
